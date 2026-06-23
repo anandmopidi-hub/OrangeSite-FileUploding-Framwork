@@ -1,0 +1,37 @@
+# Maven
+target/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
+
+# Test Reports
+test-output/
+allure-results/
+allure-report/
+
+# Playwright
+playwright-report/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+
+# Java
+*.class
+
+# Node Modules
+node_modules/
+
+# Environment Files
+.env
+# Google credentials
+credentials.json
+src/main/resources/credentials.json

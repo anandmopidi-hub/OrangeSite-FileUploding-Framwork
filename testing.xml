@@ -1,0 +1,13 @@
+<suite name="Orange HRM Suite">
+
+    <listeners>
+        <listener class-name="listeners.ExecutionListener"/>
+    </listeners>
+
+    <test name="Recruitment Flow">
+        <classes>
+            <class name="tests.RecruitmentTest"/>
+        </classes>
+    </test>
+
+</suite>
