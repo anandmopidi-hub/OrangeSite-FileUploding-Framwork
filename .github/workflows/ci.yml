@@ -33,6 +33,11 @@ jobs:
           mkdir -p src/main/resources
           echo '${{ secrets.GCP_CREDENTIALS }}' > src/main/resources/credentials.json
       # ---------------------------
+  # --- ADD THIS STEP TO FIX THE NEW ERROR ---
+      - name: Install Playwright Dependencies
+        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 
+      - name: Run Maven Tests
+        run: mvn test
       - name: Run Tests
         run: mvn test
