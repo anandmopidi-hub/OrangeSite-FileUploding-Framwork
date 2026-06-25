@@ -32,12 +32,10 @@ jobs:
         run: |
           mkdir -p src/main/resources
           echo '${{ secrets.GCP_CREDENTIALS }}' > src/main/resources/credentials.json
-      # ---------------------------
-  # --- ADD THIS STEP TO FIX THE NEW ERROR ---
-      - name: Install Playwright Dependencies
+            # CHANGE 1: Install the actual browser and system libraries
+      - name: Install Playwright Browsers & Deps
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 
+      # CHANGE 2: Wrap the test command with xvfb-run
       - name: Run Maven Tests
-        run: mvn test
-      - name: Run Tests
-        run: mvn test
+        run: xvfb-run mvn test
