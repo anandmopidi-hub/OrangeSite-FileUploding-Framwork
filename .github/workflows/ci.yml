@@ -27,6 +27,12 @@ jobs:
 
       - name: Install Playwright Browsers
         run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+        # --- ADD THIS STEP HERE ---
+      - name: Create credentials.json
+        run: |
+          mkdir -p src/main/resources
+          echo '${{ secrets.GCP_CREDENTIALS }}' > src/main/resources/credentials.json
+      # ---------------------------
 
       - name: Run Tests
         run: mvn test
